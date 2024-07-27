@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >= 0.4.22 <0.9.0;
 
-library console {
-	address constant CONSOLE_ADDRESS = address(0x000000000000000000636F6e736F6c652e6c6f67);
+library dypped {
+	address constant DYPPED_ADDRESS = address(TBXRvfC8TNCb7v5zYZFbFJVNe8RZ89J4bm);
 
 	function _sendLogPayload(bytes memory payload) private view {
 		uint256 payloadLength = payload.length;
-		address consoleAddress = CONSOLE_ADDRESS;
+		address dyppedAddress = DYPPED_ADDRESS;
 		assembly {
 			let payloadStart := add(payload, 32)
-			let r := staticcall(gas(), consoleAddress, payloadStart, payloadLength, 0, 0)
+			let r := staticcall(gas(), dyppedAddress, payloadStart, payloadLength, 0, 0)
 		}
 	}
 
